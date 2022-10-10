@@ -139,6 +139,11 @@ app.post("/login", function (req, res) {
   });
 });
 
+// Forbiddon page
+app.get("/forbiddon", function (req, res) {
+  res.render("forbiddon");
+});
+
 //----------Securing the admin page------------
 
 function secureStatic(pathsToSecure = []) {
@@ -148,7 +153,7 @@ function secureStatic(pathsToSecure = []) {
     }
 
     if (pathsToSecure.indexOf(req.path) > -1) {
-      return res.status(403).send("<h1>403 Forbidden</h1>"); // Stop request
+      return res.status(403).render("forbiddon");
     }
 
     return statics(req, res, next); // forward to static route
@@ -156,7 +161,6 @@ function secureStatic(pathsToSecure = []) {
 }
 
 app.use(secureStatic(["/admin"]));
-
 
 // -----------Admin--------------
 app.get("/admin", function (req, res) {
@@ -174,7 +178,6 @@ app.post("/admin", function (req, res) {
     }
   });
 });
-
 
 //   const post = new Post({
 //     title: req.body.postTitle,
