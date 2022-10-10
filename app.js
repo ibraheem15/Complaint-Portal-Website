@@ -115,6 +115,9 @@ app.post("/register", function (req, res) {
 
 // -----------Login--------------
 
+//bool for is user isUserAuthenticated
+let isUserAuthenticated = false;
+
 app.get("/login", function (req, res) {
   res.render("login");
 });
@@ -130,8 +133,11 @@ app.post("/login", function (req, res) {
       if (foundUser) {
         bcrypt.compare(password, foundUser.password, function (err, result) {
           if (result === true) {
+            isUserAuthenticated = true;
             res.redirect("/admin");
             // result == true
+          } else {
+            res.render("login");
           }
         });
       }
@@ -144,29 +150,15 @@ app.get("/forbiddon", function (req, res) {
   res.render("forbiddon");
 });
 
-//----------Securing the admin page------------
-
-function secureStatic(pathsToSecure = []) {
-  return function (req, res, next) {
-    if (pathsToSecure.length === 0) {
-      return statics(req, res, next); // Do not secure, forward to static route
-    }
-
-    if (pathsToSecure.indexOf(req.path) > -1) {
-      return res.status(403).render("forbiddon");
-    }
-
-    return statics(req, res, next); // forward to static route
-  };
-}
-
-app.use(secureStatic(["/admin"]));
-
 // -----------Admin--------------
 app.get("/admin", function (req, res) {
-  Complaint.find({}, function (err, foundComplaints) {
-    res.render("admin", { complaints: foundComplaints });
-  });
+  if (isUserAuthenticated) {
+    Complaint.find({}, function (err, foundComplaints) {
+      res.render("admin", { complaints: foundComplaints });
+    });
+  } else {
+    res.render("forbiddon");
+  }
 });
 
 app.post("/admin", function (req, res) {
@@ -178,39 +170,6 @@ app.post("/admin", function (req, res) {
     }
   });
 });
-
-//   const post = new Post({
-//     title: req.body.postTitle,
-//     content: req.body.postBody,
-//   });
-
-//   post.save();
-//   res.redirect("/");
-// });
-
-/* app.get("/posts/:postID", function (req, res) {
-  // const requestedTitle = _.lowerCase(req.params.postName);
-  const postId = req.params.postID;
-
-  Post.findOne({ _id: postId }, function (err, posts) {
-    const storedTitle = _.lowerCase(posts.title);
-
-    //if (storedTitle === requestedTitle) {
-    res.render("post", {
-      title: posts.title,
-      content: posts.content,
-    });
-    //}
-  });
-});
-
-app.get("/about", function (req, res) {
-  res.render("about", { aboutContent: aboutContent });
-});
-
-app.get("/contact", function (req, res) {
-  res.render("contact", { contactContent: contactContent });
-}); */
 
 app.listen(3000, function () {
   console.log("Server started on port 3000");
