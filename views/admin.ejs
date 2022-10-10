@@ -23,11 +23,6 @@
               <td><%= complaint.status %></td>
               <td>
                 <a
-                  href="/admin/<%= complaint._id %>/resolve"
-                  class="btn btn-success"
-                  >Resolve</a
-                >
-                <a
                   href="/admin/<%= complaint._id %>/delete"
                   class="btn btn-danger"
                   >Delete</a
@@ -37,6 +32,20 @@
             <% }); %>
           </tbody>
         </table>
+      </div>
+    </div>
+  </div>
+  <!-- Logout -->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <form action="/logout" method="POST">
+            <button type="submit" class="btn btn-danger">Logout</button>
+        </form>
+        <!-- <a href="/login" class="btn btn-danger" value="false" id="check" onclick="change()">Logout</a> -->
+        <!-- <button type="button" class="btn btn-danger" value="false" id="check" onclick="change()">
+          Logout
+        </button> -->
       </div>
     </div>
   </div>

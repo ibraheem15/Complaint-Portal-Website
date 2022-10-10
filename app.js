@@ -113,10 +113,19 @@ app.post("/register", function (req, res) {
   });
 });
 
-// -----------Login--------------
 
-//bool for is user isUserAuthenticated
+
+//bool to check whether the user has logged in or not
 let isUserAuthenticated = false;
+
+//------------Logout-------------
+
+app.post("/logout", function (req, res) {
+  isUserAuthenticated = false;
+  res.redirect("/login");
+});
+
+// -----------Login--------------
 
 app.get("/login", function (req, res) {
   res.render("login");
