@@ -1,0 +1,45 @@
+<%- include("partials/header"); -%>
+
+<body>
+  <!-- Displaying Complaints -->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1 class="text-center">Complaints</h1>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Complaint ID</th>
+              <th scope="col">Complaint</th>
+              <th scope="col">Status</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% complaints.forEach(function(complaint){ %>
+            <tr>
+              <th scope="row"><%= complaint._id %></th>
+              <td><%= complaint.complaint %></td>
+              <td><%= complaint.status %></td>
+              <td>
+                <a
+                  href="/admin/<%= complaint._id %>/resolve"
+                  class="btn btn-success"
+                  >Resolve</a
+                >
+                <a
+                  href="/admin/<%= complaint._id %>/delete"
+                  class="btn btn-danger"
+                  >Delete</a
+                >
+              </td>
+            </tr>
+            <% }); %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</body>
+
+<%- include("partials/footer"); -%>

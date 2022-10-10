@@ -1,0 +1,150 @@
+html {
+  min-height: 100%;
+  position: relative;
+}
+
+.img1 {
+  width: 100%;
+  height: 750px;
+  object-fit: fill;
+  border-radius: 15px;
+  /* overflow: hidden; */
+  /* background-size: 100%; */
+}
+.img2 {
+  width: 100%;
+  height: 100%;
+  /* object-position: 100% 0%; */
+  overflow: scale-down;
+  /* object-fit: contain;
+  position: relative;
+  padding-top: 100px; */
+}
+
+.img3 {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+.carousalimgg {
+  width: 70%;
+  height: 70%;
+  object-fit: fill;
+  margin-left: 65px;
+}
+
+.slide {
+  position: absolute;
+  width: 900px;
+  margin: 0 0 0 580px;
+  bottom: 180px;
+}
+
+.card-img {
+  width: 200px;
+}
+
+.testbox{
+  position: relative;
+  width: 900px;
+  margin: 0 0 0 400px;
+  height: auto;
+}
+
+@media (max-width: 767px) {
+  .carousel-inner .carousel-item > div {
+    display: none;
+  }
+  .carousel-inner .carousel-item > div:first-child {
+    display: block;
+  }
+}
+
+.carousel-inner .carousel-item.active,
+.carousel-inner .carousel-item-next,
+.carousel-inner .carousel-item-prev {
+  display: flex;
+}
+
+/* medium and up screens */
+@media (min-width: 768px) {
+  .carousel-inner .carousel-item-end.active,
+  .carousel-inner .carousel-item-next {
+    transform: translateX(25%);
+  }
+
+  .carousel-inner .carousel-item-start.active,
+  .carousel-inner .carousel-item-prev {
+    transform: translateX(-25%);
+  }
+}
+
+.carousel-inner .carousel-item-end,
+.carousel-inner .carousel-item-start {
+  transform: translateX(0);
+}
+
+.buttin {
+ /*  position: relative;
+  top: 70%;
+  left: 27%;
+  transform: translate(-50%, -50%); */
+  position: absolute;
+  top: 60%;
+  left: 26%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #555;
+  color: white;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.container {
+  position: relative;
+}
+
+.btn-warning {
+  border-radius: 40px;
+}
+
+.container-fluid {
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+.navbar {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border: 0;
+  border-radius: 0;
+  margin-bottom: 0;
+  font-size: 12px;
+  letter-spacing: 5px;
+}
+.navbar-nav li a:hover {
+  color: #1abc9c !important;
+}
+
+.footer-padding {
+  padding-bottom: 60px;
+}
+
+.footer {
+  position: absolute;
+  text-align: center;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  background-color: #1abc9c;
+}
+
+.footer p {
+  margin-top: 25px;
+  font-size: 12px;
+  color: #fff;
+}
