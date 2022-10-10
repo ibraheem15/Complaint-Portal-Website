@@ -7,6 +7,7 @@ const mongoose = require("mongoose");
 const _ = require("lodash");
 const { render } = require("ejs");
 const bcrypt = require("bcrypt");
+const { dropWhile } = require("lodash");
 const saltRounds = 10;
 
 const app = express();
@@ -95,28 +96,12 @@ app.get("/register", function (req, res) {
 });
 
 app.post("/register", function (req, res) {
-  // User.register(
-  //   { username: req.body.username },
-  //   req.body.password,
-  //   function (err, user) {
-  //     if (err) {
-  //       console.log(err);
-  //       res.redirect("/register");
-  //     } else {
-  //       passport.authenticate("local")(req, res, function () {
-  //         res.redirect("/secrets");
-  //       });
-  //     }
-  //   }
-  // );
-
   //--------HASHING------------
   bcrypt.hash(req.body.password, saltRounds, function (err, hash) {
     // Store hash in your password DB.
     const newuser = new User({
       username: req.body.username,
       password: hash,
-      // password: md5(req.body.password), overtaken by bcrypt
     });
     newuser.save(function (err) {
       if (err) {
@@ -135,13 +120,6 @@ app.get("/login", function (req, res) {
 });
 
 app.post("/login", function (req, res) {
-  /* const username = req.body.username;
-  const password = req.body.password;
-
-  if (username === "HCI" && password === "Project") {
-    res.render("admin");
-  } */
-
   const username = req.body.username;
   const password = req.body.password;
 
