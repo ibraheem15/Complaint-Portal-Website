@@ -64,12 +64,12 @@ app.post("/complaints", function (req, res) {
   var FirstName = req.body.FirstName;
   var LastName = req.body.LastName;
   var Email = req.body.Email;
-  var Phone = req.body.Phone;
-  var Signature = req.body.Signature;
   var Date = req.body.Date;
   var CityName = req.body.CityName;
+  var Phone = req.body.Phone;
   var PersonInvolved = req.body.PersonInvolved;
   var Relevent_Information = req.body.Relevent_Information;
+  var Signature = req.body.Signature;
 
   const newComplaint = new Complaint({
     FirstName: FirstName,
@@ -78,10 +78,13 @@ app.post("/complaints", function (req, res) {
     Phone: Phone,
     CityName: CityName,
     PersonInvolved: PersonInvolved,
+    Relevent_Information: Relevent_Information,
+    Signature: Signature,
+    Date: Date,
   });
 
   newComplaint.save();
-  res.redirect("/");
+  res.redirect("/successful");
 });
 
 // get successful page
@@ -144,7 +147,6 @@ app.post("/login", function (req, res) {
           if (result === true) {
             isUserAuthenticated = true;
             res.redirect("/admin");
-            // result == true
           } else {
             res.render("login");
           }
