@@ -139,6 +139,25 @@ app.post("/login", function (req, res) {
   });
 });
 
+//----------Securing the admin page------------
+
+function secureStatic(pathsToSecure = []) {
+  return function (req, res, next) {
+    if (pathsToSecure.length === 0) {
+      return statics(req, res, next); // Do not secure, forward to static route
+    }
+
+    if (pathsToSecure.indexOf(req.path) > -1) {
+      return res.status(403).send("<h1>403 Forbidden</h1>"); // Stop request
+    }
+
+    return statics(req, res, next); // forward to static route
+  };
+}
+
+app.use(secureStatic(["/admin"]));
+
+
 // -----------Admin--------------
 app.get("/admin", function (req, res) {
   Complaint.find({}, function (err, foundComplaints) {
@@ -155,6 +174,7 @@ app.post("/admin", function (req, res) {
     }
   });
 });
+
 
 //   const post = new Post({
 //     title: req.body.postTitle,
