@@ -87,6 +87,10 @@ app.post("/complaints", function (req, res) {
   res.redirect("/successful");
 });
 
+//-----------Delete Complaint------------
+app.post("/delete", function (req, res) {
+  
+
 // get successful page
 app.get("/successful", function (req, res) {
   res.render("successful");

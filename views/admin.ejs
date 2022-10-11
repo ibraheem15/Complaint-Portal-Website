@@ -9,19 +9,35 @@
         <table class="table table-striped">
           <thead>
             <tr>
-              <th scope="col">Complaint ID</th>
-              <th scope="col">Complaint</th>
-              <th scope="col">Status</th>
-              <th scope="col">Action</th>
+              <th scope="col" class="idd">Complaint ID</th>
+              <th scope="col" class="names">First Name</th>
+              <th scope="col" class="names">Last Name</th>
+              <th scope="col">Email</th>
+              <th scope="col">Phone Number</th>
+              <th scope="col" class="dates">Date of Complaint</th>
+              <th scope="col">City Name</th>
+              <th scope="col" class="long">Person(s) Involved</th>
+              <th scope="col" class="long">Relevant Information</th>
+              <th scope="col" class="long">Signature</th>
+              <th scope="col"><%= complaints[0].Phone %></th>
             </tr>
           </thead>
           <tbody>
             <% complaints.forEach(function(complaint){ %>
             <tr>
-              <th scope="row"><%= complaint._id %></th>
-              <td><%= complaint.complaint %></td>
-              <td><%= complaint.status %></td>
-              <td>
+              <th scope="row" class="idd"><%= complaint._id %></th>
+              <td><%= complaint.FirstName %></td>
+              <td><%= complaint.LastName %></td>
+              <td><%= complaint.Email %></td>
+              <td><%= complaint.Phone %></td>
+              <td><%= complaint.Date %></td>
+              <td><%= complaint.CityName %></td>
+              <td><%= complaint.PersonInvolved %></td>
+              <td><%= complaint.Relevent_Information %></td>
+              <td><%= complaint.Signature %></td>
+
+
+              <td class="delete">
                 <a
                   href="/admin/<%= complaint._id %>/delete"
                   class="btn btn-danger"
@@ -47,4 +63,51 @@
   </div>
 </body>
 
+<style>
+  table tr:hover {
+    background-color: rgb(137, 201, 192);
+    overflow: visible;
+    white-space: normal;
+    height: auto;
+  }
+  table td,
+  table th {
+    height: 50px;
+    max-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+    word-break: break-all;
+    white-space: nowrap;
+    border: 1px solid #c8c8c8;
+    text-align: left;
+    padding: 10px;
+  }
+
+  tr > td:hover {
+    overflow: visible;
+    white-space: unset;
+  }
+  .idd {
+    max-width: 60px;
+  }
+  .names{
+    max-width: 28px;
+  }
+  
+  .long{
+    max-width: 40px;
+  }
+  .delete {
+    max-width: 20px;
+  }
+  .table-striped{
+    /* set size of table */
+    width: 1350px;
+    margin-left: -20px;
+  }
+
+</style>
+
+<script></script>
 <%- include("partials/footer"); -%>
