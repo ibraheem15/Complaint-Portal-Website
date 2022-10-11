@@ -9,6 +9,7 @@ const { render } = require("ejs");
 const bcrypt = require("bcrypt");
 const { dropWhile } = require("lodash");
 const saltRounds = 10;
+const mongo = require("mongodb");
 
 const app = express();
 
@@ -41,7 +42,7 @@ const Complaintschema = {
   Email: String,
   Password: String,
   CityName: String,
-  PhoneNumber: String,
+  Phone: Number,
   PersonInvolved: String,
   Relevent_Information: String,
   Signature: String,
@@ -82,14 +83,24 @@ app.post("/complaints", function (req, res) {
     Signature: Signature,
     Date: Date,
   });
-
+  console.log(Phone);
   newComplaint.save();
   res.redirect("/successful");
 });
 
 //-----------Delete Complaint------------
 app.post("/delete", function (req, res) {
-  
+  const DeleteComplaint = req.body.DeleteComplaint;
+  Complaint.findByIdAndRemove({ _id: DeleteComplaint }, function (err) {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log("Successfully deleted the checked item.");
+      res.redirect("/admin");
+    }
+  });
+
+});
 
 // get successful page
 app.get("/successful", function (req, res) {
@@ -119,8 +130,6 @@ app.post("/register", function (req, res) {
     });
   });
 });
-
-
 
 //bool to check whether the user has logged in or not
 let isUserAuthenticated = false;
