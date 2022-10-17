@@ -9,7 +9,7 @@ const { render } = require("ejs");
 const bcrypt = require("bcrypt");
 const { dropWhile } = require("lodash");
 const saltRounds = 10;
-const mongo = require("mongodb");
+//const mongo = require("mongodb");
 
 const app = express();
 

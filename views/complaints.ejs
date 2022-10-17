@@ -1,7 +1,17 @@
-<%- include("partials/header1"); -%>
+<!-- header import -->
+<%- include('partials/headerComplaint') %>
+
+<div class="nightmode">
+  <input type="checkbox" class="checkbox" id="checkbox" />
+  <label for="checkbox" class="label">
+    <i class="fas fa-moon"></i>
+    <i class="fas fa-sun"></i>
+    <div class="ball"></div>
+  </label>
+</div>
 
 <div class="testbox">
-  <form action="/complaints" method="post">
+  <form action="/complaints" method="post" class="formingn">
     <h1>Workplace Complaint Form</h1>
 
     <div class="item">
@@ -14,28 +24,28 @@
 
     <div class="item">
       <p>Your email</p>
-      <input type="text" name="Email" />
+      <input class="formingnn" type="text" name="Email" />
     </div>
 
     <div class="item">
       <p>Date of Complaint</p>
-      <input type="date" name="Date" required />
+      <input class="formingnn" type="date" name="Date" required />
       <i class="fas fa-calendar-alt"></i>
     </div>
 
     <div class="item">
       <p>City Name</p>
-      <input type="text" name="CityName" />
+      <input class="formingnn" type="text" name="CityName" />
     </div>
 
     <div class="item">
       <p>Phone Number</p>
-      <input type="number" name="Phone" />
+      <input class="formingnn" type="number" name="Phone" />
     </div>
 
     <div class="item">
       <p>The Person(s) involved in this complaint are:</p>
-      <textarea rows="5" name="PersonInvolved"></textarea>
+      <textarea class="formingnn" rows="5" name="PersonInvolved"></textarea>
     </div>
 
     <div class="item">
@@ -43,12 +53,16 @@
         Note: Write all relevant dates, places, events, etc. pertaining to the
         complaint:
       </p>
-      <textarea rows="5" name="Relevent_Information"></textarea>
+      <textarea
+        class="formingnn"
+        rows="5"
+        name="Relevent_Information"
+      ></textarea>
     </div>
 
     <div class="item">
       <p>Signature:</p>
-      <textarea rows="5" name="Signature"></textarea>
+      <textarea class="formingnn" rows="5" name="Signature"></textarea>
     </div>
 
     <div class="btn-block">
@@ -57,7 +71,7 @@
   </form>
 </div>
 <style>
-  html,
+  /* html,
   body {
     min-height: 100%;
   }
@@ -159,7 +173,21 @@
   }
   button:hover {
     background-color: #0666a3;
-  }
+  } */
 </style>
+
+<script>
+  const checkbox = document.getElementById("checkbox");
+
+  checkbox.addEventListener("change", () => {
+    // change the theme of the website
+    document.body.classList.toggle("dark");
+    //form to dark
+    document.querySelector(".formingn").classList.toggle("dark");
+    //input dark
+    var x = document.querySelector(".formingnn");
+    x.classList.toggle("dark");
+  });
+</script>
 
 <%- include("partials/footer"); -%>
