@@ -2,8 +2,12 @@
 <%- include("partials/headerLogin"); -%>
 
 <html>
-  <style></style>
-
+  <style>
+    #text {
+      display: none;
+      color: red;
+    }
+  </style>
   <body>
     <div class="nightmode">
       <input type="checkbox" class="checkbox" id="checkbox" />
@@ -35,8 +39,10 @@
                     type="password"
                     name="password"
                     class="form-control"
+                    id="mypassword"
                     i
                   />
+                  <p id="text">Warning! Caps Lock is ON</p>
                 </div>
 
                 <div class="col-lg-12 loginbttm">
@@ -62,22 +68,34 @@
 <script>
   const checkbox = document.getElementById("checkbox");
 
-checkbox.addEventListener("change", () => {
-  document.body.classList.toggle("dark");
-  //login-box dark
-  document.querySelector(".login-box").classList.toggle("dark");
-  //login-key dark
-  document.querySelector(".login-key").classList.toggle("dark");
-  //login-title dark
-  document.querySelector(".login-title").classList.toggle("dark");
-  //login-form dark
-  document.querySelector(".login-form").classList.toggle("dark");
-  //input dark
-  document.querySelector("input").classList.toggle("dark");
-  //logindark
-  document.querySelector(".logindark").classList.toggle("dark");
+  checkbox.addEventListener("change", () => {
+    document.body.classList.toggle("dark");
+    //login-box dark
+    document.querySelector(".login-box").classList.toggle("dark");
+    //login-key dark
+    document.querySelector(".login-key").classList.toggle("dark");
+    //login-title dark
+    document.querySelector(".login-title").classList.toggle("dark");
+    //login-form dark
+    document.querySelector(".login-form").classList.toggle("dark");
+    //input dark
+    document.querySelector("input").classList.toggle("dark");
+    //logindark
+    document.querySelector(".logindark").classList.toggle("dark");
 
-});
+    //Caps Lock On
+    var input = document.getElementById("mypassword");
+    var text = document.getElementById("text");
+    input.addEventListener("keydown", function (event) {
+      if (event.getModifierState("CapsLock")) {
+        console.log("Caps Lock is ON");
+        text.style.display = "block";
+      } else {
+        console.log("Caps Lock is OFF");
+        text.style.display = "none";
+      }
+    });
+  });
 </script>
 
 <!-- footer import -->
