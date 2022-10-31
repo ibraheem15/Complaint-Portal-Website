@@ -22,7 +22,6 @@ html {
 }
 
 .img3 {
-  position: relative;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -135,7 +134,6 @@ html {
 }
 
 .footer {
-  position: absolute;
   text-align: center;
   bottom: 0;
   width: 100%;
@@ -144,14 +142,14 @@ html {
 }
 
 .footer p {
-  margin-top: 25px;
+  padding-top: 25px;
   font-size: 12px;
   color: #fff;
 }
 
-.nightmode{
+.nightmode {
   position: absolute;
-  top: .4%;
+  top: 0.4%;
   left: 66%;
   padding: 12px 24px;
 }
@@ -179,8 +177,8 @@ body.dark {
 }
 
 .ball {
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
   background-color: white;
   position: absolute;
   top: 2px;
@@ -200,4 +198,101 @@ body.dark {
 
 .fa-sun {
   color: yellow;
+}
+
+/* back to TOP Button */
+.back-to-top {
+  position: fixed;
+  right: 2rem;
+  bottom: 2rem;
+}
+
+.hidden {
+  display: none;
+}
+
+@import "compass/css3";
+@import url(https://fonts.googleapis.com/css?family=Lato:700);
+
+.arrow {
+  position: fixed;
+  right: 2rem;
+  bottom: 2rem;
+  margin-top: -29px;
+  margin-left: -60px;
+  display: inline-block;
+  font-size: 26px;
+  color: #b3c33a;
+  text-align: center;
+  width: 120px;
+  height: 60px;
+  line-height: 60px;
+  border: 5px solid #b3c33a;
+  overflow: hidden;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: width 0.5s ease-in-out, margin 0.5s ease-in-out,
+    border-radius 0.25s ease-in-out, color 0.25s ease-in-out;
+}
+.arrow:hover,
+.arrow.auto {
+  width: 60px;
+  margin-left: -30px;
+  border-radius: 40px;
+  color: rgba(179, 195, 58, 0);
+  transition: width 0.5s ease-in-out, margin 0.5s ease-in-out,
+    border-radius 1s 0.25 ease-in-out, color 0.25s ease-in-out 0.25s;
+}
+.arrow:hover:before,
+.arrow.auto:before {
+  animation: lineUp 1s cubic-bezier(0, 0.6, 1, 0.4) infinite 0.5s;
+}
+.arrow:hover:after,
+.arrow.auto:after {
+  animation: tipUp 1s cubic-bezier(0, 0.6, 1, 0.4) infinite 0.5s;
+}
+.arrow:before {
+  position: absolute;
+  display: inline-block;
+  content: "";
+  background: #b3c33a;
+  width: 5px;
+  height: 40px;
+  top: 50%;
+  left: 50%;
+  margin-top: -8px;
+  margin-left: -3px;
+  transform: translateY(50px);
+}
+.arrow:after {
+  position: absolute;
+  display: inline-block;
+  content: "";
+  width: 20px;
+  height: 20px;
+  color: #b3c33a;
+  border-top: 5px solid;
+  border-left: 5px solid;
+  transform: rotateZ(45deg);
+  top: 50%;
+  left: 55.2%;
+  margin-top: -6px;
+  margin-left: -13px;
+  transform: translateY(50px) rotateZ(45deg);
+}
+@keyframes tipUp {
+  0% {
+    transform: translateY(50px) rotateZ(45deg);
+  }
+  100% {
+    transform: translateY(-70px) rotateZ(45deg);
+  }
+}
+@keyframes lineUp {
+  0% {
+    transform: translateY(50px);
+  }
+  100% {
+    transform: translateY(-70px);
+  }
 }
