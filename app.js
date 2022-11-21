@@ -10,6 +10,22 @@ const bcrypt = require("bcrypt");
 const { dropWhile } = require("lodash");
 const saltRounds = 10;
 //const mongo = require("mongodb");
+const fs = require("fs");
+const multer = require("multer");
+const path = require("path");
+
+//set storage
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "uploads/");
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.fieldname + "-" + Date.now());
+  },
+});
+
+//init upload
+var upload = multer({ storage: storage })
 
 const app = express();
 
@@ -47,6 +63,10 @@ const Complaintschema = {
   Relevent_Information: String,
   Signature: String,
   Date: String,
+  img: {
+    data: Buffer,
+    contentType: String,
+  },
 };
 
 var Complaint = mongoose.model("Complaint", Complaintschema);
@@ -61,7 +81,7 @@ app.get("/complaints", function (req, res) {
   res.render("complaints");
 });
 
-app.post("/complaints", function (req, res) {
+app.post("/complaints", upload.single("image"), function (req, res) {
   var FirstName = req.body.FirstName;
   var LastName = req.body.LastName;
   var Email = req.body.Email;
@@ -71,6 +91,12 @@ app.post("/complaints", function (req, res) {
   var PersonInvolved = req.body.PersonInvolved;
   var Relevent_Information = req.body.Relevent_Information;
   var Signature = req.body.Signature;
+  var img = fs.readFileSync(req.file.path);
+  var encode_image = img.toString("base64");
+  var finalImg = {
+    contentType: req.file.mimetype,
+    data: new Buffer(encode_image, "base64"),
+  };
 
   const newComplaint = new Complaint({
     FirstName: FirstName,
@@ -82,8 +108,9 @@ app.post("/complaints", function (req, res) {
     Relevent_Information: Relevent_Information,
     Signature: Signature,
     Date: Date,
+    img: finalImg,
   });
-  console.log(Phone);
+  console.log(newComplaint);
   newComplaint.save();
   res.redirect("/successful");
 });
@@ -99,7 +126,6 @@ app.post("/delete", function (req, res) {
       res.redirect("/admin");
     }
   });
-
 });
 
 // get successful page
