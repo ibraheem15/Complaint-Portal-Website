@@ -1,51 +1,61 @@
 <!-- header import -->
-<%- include('partials/headerComplaint') %>
+<%- include('partials/headerComplain1') %>
 
-<div class="nightmode">
+<!-- <div class="nightmode">
   <input type="checkbox" class="checkbox" id="checkbox" />
   <label for="checkbox" class="label">
     <i class="fas fa-moon"></i>
     <i class="fas fa-sun"></i>
     <div class="ball"></div>
   </label>
-</div>
+</div> -->
 
 <div class="testbox">
-  <form action="/complaints" method="post" class="formingn">
+  <form
+    action="/complaints"
+    method="post"
+    class="formingn"
+    enctype="multipart/form-data"
+  >
     <h1>Workplace Complaint Form</h1>
 
     <div class="item">
       <p>Your name</p>
       <div>
-        <input type="text" name="FirstName" placeholder="First Name" required/>
-        <input type="text" name="LastName" placeholder="Last Name" required/>
+        <input type="text" name="FirstName" placeholder="First Name" required />
+        <input type="text" name="LastName" placeholder="Last Name" required />
       </div>
     </div>
 
     <div class="item">
       <p>Your email</p>
-      <input class="formingnn" type="text" name="Email" required/>
+      <input class="formingnn" type="text" name="Email" required />
     </div>
 
     <div class="item">
       <p>Date of Complaint</p>
       <input class="formingnn" type="date" name="Date" required />
-      <i class="fas fa-calendar-alt"></i>
+      <i class="fas fa-calendar-alt" id="calender-icon"></i>
     </div>
 
     <div class="item">
       <p>City Name</p>
-      <input class="formingnn" type="text" name="CityName" required/>
+      <input class="formingnn" type="text" name="CityName" required />
     </div>
 
     <div class="item">
       <p>Phone Number</p>
-      <input class="formingnn" type="number" name="Phone" required/>
+      <input class="formingnn" type="tel" name="Phone" required />
     </div>
 
     <div class="item">
       <p>The Person(s) involved in this complaint are:</p>
-      <textarea class="formingnn" rows="5" name="PersonInvolved" required></textarea>
+      <textarea
+        class="formingnn"
+        rows="5"
+        name="PersonInvolved"
+        required
+      ></textarea>
     </div>
 
     <div class="item">
@@ -59,6 +69,11 @@
         name="Relevent_Information"
         required
       ></textarea>
+    </div>
+
+    <div class="item">
+      <p>Upload Image</p>
+      <input type="file" name="image" id="image" />
     </div>
 
     <div class="item">
@@ -88,7 +103,9 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">Are you sure to Submit?</h1>
+            <h1 class="modal-title fs-5" id="exampleModalLabel">
+              Are you sure to Submit?
+            </h1>
             <button
               type="button"
               class="btn-close"
@@ -104,7 +121,9 @@
             >
               Close
             </button>
-            <button type="submit" href="/" class="btn btn-primary">Confirmed</button>
+            <button type="submit" href="/" class="btn btn-primary">
+              Confirmed
+            </button>
           </div>
         </div>
       </div>

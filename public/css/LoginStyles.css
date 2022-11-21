@@ -5,7 +5,7 @@ body {
 }
 
 .login-box {
-  margin-top: 75px;
+  margin-top: 95px;
   height: auto;
   /* background: #1a2226; */
   background: #fff;
@@ -225,4 +225,20 @@ input[type="password"].dark {
   color: yellow;
 }
 
-/* Copied */
+/* FOOTER */
+footer {
+  background: #343a40;
+  padding: 50px;
+  height: 275px;
+  margin-top: 70px;
+}
+footer a {
+  color: #f8f9fa !important;
+}
+
+.text-muted
+{
+  margin-top: 0px;
+  text-align: center;
+
+}

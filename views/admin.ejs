@@ -43,6 +43,11 @@
               <td class="nighty"><%= complaint.PersonInvolved %></td>
               <td class="nighty"><%= complaint.Relevent_Information %></td>
               <td class="nighty"><%= complaint.Signature %></td>
+              <td class="nighty"><!-- image -->
+                <img src="data:image/<%=complaint.img.contentType%>;base64,
+                     <%=complaint.img.data.toString('base64')%>">
+              </td>
+                
 
               <td class="delete">
                 <form action="/delete" method="post">

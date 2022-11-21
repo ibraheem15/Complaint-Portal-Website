@@ -1,5 +1,5 @@
 <!-- header import -->
-<%- include("partials/headerLogin"); -%>
+<%- include("partials/headerLogin1"); -%>
 
 <html>
   <style>
@@ -9,14 +9,6 @@
     }
   </style>
   <body>
-    <div class="nightmode">
-      <input type="checkbox" class="checkbox" id="checkbox" />
-      <label for="checkbox" class="label">
-        <i class="fas fa-moon"></i>
-        <i class="fas fa-sun"></i>
-        <div class="ball"></div>
-      </label>
-    </div>
     <div class="container">
       <div class="row">
         <div class="col-lg-3 col-md-2"></div>
@@ -58,7 +50,6 @@
               </form>
             </div>
           </div>
-          <div class="col-lg-3 col-md-2"></div>
         </div>
       </div>
     </div>
@@ -82,6 +73,9 @@
     document.querySelector("input").classList.toggle("dark");
     //logindark
     document.querySelector(".logindark").classList.toggle("dark");
+    
+        document.querySelector(".navi").classList.toggle("bg-dark");
+    document.querySelector(".navi").classList.toggle("bg-light");
 
     //Caps Lock On
     var input = document.getElementById("mypassword");
@@ -99,4 +93,4 @@
 </script>
 
 <!-- footer import -->
-<!-- <%- include("partials/footer"); -%> -->
+<%- include("partials/footer"); -%>
