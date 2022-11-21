@@ -9,20 +9,25 @@
       crossorigin="anonymous"
     />
 
-    <link rel="stylesheet" href="/css/styles.css" />
-    <style>
-      @import url("https://fonts.googleapis.com/css?family=Roboto");
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kanit:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+      integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+      crossorigin="anonymous"
+    />
 
-      body {
-        font-family: "Roboto", sans-serif;
-      }
-      * {
-        margin: 0;
-        padding: 0;
-      }
-      i {
-        margin-right: 10px;
-      }
+    <link rel="stylesheet" href="/css/LoginStyles.css" />
+    <style>
       /*----------bootstrap-navbar-css------------*/
       .navbar-logo {
         padding: 15px;
@@ -30,7 +35,7 @@
         padding-right: 100px;
         color: #fff;
       }
-      
+
       /*----------bootstrap-navbar-css------------*/
       .dropdown-toggle::after {
         display: none;
@@ -60,24 +65,7 @@
       referrerpolicy="no-referrer"
     ></script>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Kanit:wght@500&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
-      integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
-      crossorigin="anonymous"
-    />
-
-    <nav class="navbar navbar-expand-lg shadow-sm fixed-top bg-light navi">
+    <nav class="navbar navbar-expand-lg shadow-sm fixed-top navi">
       <div class="container">
         <a class="navbar-brand d-flex align-items-center" href="#">
           <svg
@@ -194,6 +182,7 @@
         </div>
       </div>
     </nav>
+
     <style>
       .dropdown-toggle::after {
         display: none;
@@ -206,6 +195,7 @@
         width: 2rem;
       }
     </style>
+
     <script>
       $(document).ready(function () {
         if ($(window).width() > 991) {
@@ -225,19 +215,64 @@
         }
       });
     </script>
+
+    <script>
+      $(document).ready(function () {
+        if ($(window).width() > 991) {
+          $(".navbar-light .d-menu").hover(
+            function () {
+              $(this).find(".sm-menu").first().stop(true, true).slideDown(150);
+            },
+            function () {
+              $(this)
+                .find(".sm-menu")
+                .first()
+                .stop(true, true)
+                .delay(120)
+                .slideUp(100);
+            }
+          );
+        }
+      });
+    </script>
+
     <script>
       const checkbox = document.getElementById("checkbox");
 
       checkbox.addEventListener("change", () => {
-        document.body.classList.toggle("dark");
         document.querySelector(".navi").classList.toggle("navbar-dark");
+        //form to dark
+
+        document.body.classList.toggle("dark");
+
         document.querySelector(".navi").classList.toggle("bg-dark");
         document.querySelector(".navi").classList.toggle("bg-light");
+        //login-box dark
+        document.querySelector(".login-box").classList.toggle("dark");
+        //login-key dark
+        document.querySelector(".login-key").classList.toggle("dark");
+        //login-title dark
+        document.querySelector(".login-title").classList.toggle("dark");
+        //login-form dark
+        document.querySelector(".login-form").classList.toggle("dark");
         //input dark
-        // var x = document.querySelector(".navbar");
-        // x.classList.toggle("navbar");
+        document.querySelector("input").classList.toggle("dark");
+        //logindark
+        document.querySelector(".logindark").classList.toggle("dark");
+
+        //Caps Lock On
+        var input = document.getElementById("mypassword");
+        var text = document.getElementById("text");
+        input.addEventListener("keydown", function (event) {
+          if (event.getModifierState("CapsLock")) {
+            console.log("Caps Lock is ON");
+            text.style.display = "block";
+          } else {
+            console.log("Caps Lock is OFF");
+            text.style.display = "none";
+          }
+        });
       });
     </script>
-    <script src="https://kit.fontawesome.com/7e5d4f85d5.js" crossorigin="anonymous"></script>
   </head>
 </html>
