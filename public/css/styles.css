@@ -12,15 +12,90 @@ html {
   /* overflow: hidden; */
   /* background-size: 100%; */
 }
-.img2 {
-  width: 100%;
-  height: 60%;
-  /* object-position: 100% 0%; */
-  overflow: scale-down;
-  /* object-fit: contain;
-  position: relative;
-  padding-top: 100px; */
+/* !Services */
+.services {
+  margin-top: 100px;
+  text-align: center;
 }
+.services h1 {
+  color: #031280;
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+.services p {
+  color: #031280;
+
+  font-size: 20px;
+  font-weight: 500;
+  max-width: 750px;
+  margin: 0 auto;
+}
+/* !Feedback Divs under the top image */
+.fd-row {
+  display: grid;
+  padding: 30px;
+  margin-left: 150px;
+  margin-right: 12px;
+  grid-template-columns: auto auto auto;
+  margin-bottom: 150px;
+}
+.fd-row p {
+  font-size: 20px;
+  font-weight: medium;
+  margin-bottom: 20px;
+  font-weight: 400;
+}
+
+.fd-row h3 {
+  /* center the font */
+  text-align: center;
+}
+
+.fd-row > div {
+  text-align: center;
+}
+
+.feedback1 {
+  font-family: "Alegreya Sans", sans-serif;
+  height: 350px;
+
+  color: #031280;
+
+  width: 350px;
+}
+.feedback2 {
+  font-family: "Alegreya Sans", sans-serif;
+  color: #031280;
+
+  height: 350px;
+  width: 350px;
+}
+.feedback3 {
+  font-family: "Alegreya Sans", sans-serif;
+  color: #031280;
+
+  height: 350px;
+  width: 350px;
+}
+
+.feedback-imgs {
+  width: 60%;
+  height: 60%;
+  object-fit: fill;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  border-radius: 15px;
+  border-color: white;
+  overflow: hidden;
+  background-size: 100%;
+  margin-bottom: 30px;
+}
+
+/* !-----ENDDD
+*Feedback Divs under the top image */
 
 .img3 {
   width: 100%;
@@ -142,7 +217,6 @@ footer a {
   text-align: center;
 }
 
-
 /* 
 ! Night mode button
  */
@@ -158,8 +232,7 @@ footer a {
 !NAvbar Dark
 */
 
-
-.navi.dark .navbar{
+.navi.dark .navbar {
   color: rgb(0, 0, 0);
   background-color: #111;
 }
@@ -232,7 +305,7 @@ body.dark {
 
 #button {
   display: inline-block;
-  background-color: #FF9800;
+  background-color: #ff9800;
   width: 50px;
   height: 50px;
   text-align: center;
@@ -240,8 +313,7 @@ body.dark {
   position: fixed;
   bottom: 30px;
   right: 30px;
-  transition: background-color .3s, 
-    opacity .5s, visibility .5s;
+  transition: background-color 0.3s, opacity 0.5s, visibility 0.5s;
   opacity: 0;
   visibility: hidden;
   z-index: 1000;
@@ -249,7 +321,7 @@ body.dark {
 #button::after {
   content: "\f077";
   font-family: FontAwesome;
-  font-weight:bold;
+  font-weight: bold;
   font-style: large;
   font-size: 2em;
   line-height: 50px;
@@ -372,41 +444,39 @@ body.dark {
 /* !LightSlider Image Carousal */
 
 .demo {
-  width:600px;
+  width: 600px;
 }
 ul {
   list-style: none outside none;
   padding-left: 0;
-  margin-bottom:0;
+  margin-bottom: 0;
 }
 li {
   display: block;
-  float:none;
+  float: none;
   margin-right: 6px;
-  cursor:pointer;
+  cursor: pointer;
 }
 img {
-  display:block;
+  display: block;
   height: 200px;
-  width: 200px; 
+  width: 200px;
   border: 1px solid #ccc;
   max-width: 100%;
 }
-.lSPrev
-{
+.lSPrev {
   background-color: #111;
   border-radius: 30px;
   margin-left: 1px;
 }
-.lSNext
-{
+.lSNext {
   background-color: #111;
   border-radius: 30px;
   margin-right: 1px;
 }
 
-.demo{
-  position:absolute;
+.demo {
+  position: absolute;
   margin-top: -350px;
   margin-left: 1050px;
 }
