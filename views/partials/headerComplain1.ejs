@@ -47,6 +47,9 @@
       .icon-width {
         width: 2rem;
       }
+      .nav-item.active a {
+        color: #031280;
+      }
     </style>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
@@ -64,11 +67,20 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
+    <script
+      src="https://kit.fontawesome.com/7e5d4f85d5.js"
+      crossorigin="anonymous"
+    ></script>
 
-    <nav class="navbar navbar-expand-lg shadow-sm fixed-top navi">
+    <nav class="navbar navbar-expand-lg shadow-sm fixed-top bg-light navi">
       <div class="container">
-        <a class="navbar-brand d-flex align-items-center" href="#">
-          <svg
+        <a class="navbar-brand d-flex align-items-center navbar-logo" href="/">
+          <img
+            src="https://i.ibb.co/qDnszpD/complaint-portal-logo-voice-of-consumer.png"
+            alt="Complaint Portal"
+            class="nav-img"
+          />
+          <!-- <svg
             width="40px"
             version="1.1"
             id="Layer_1"
@@ -90,8 +102,7 @@
                 />
               </g>
             </g>
-          </svg>
-          <span class="ml-3 font-weight-bold">BRAND</span>
+          </svg> -->
         </a>
         <button
           class="navbar-toggler navbar-toggler-right border-0"
@@ -104,7 +115,7 @@
 
         <div class="collapse navbar-collapse" id="navbar4">
           <ul class="navbar-nav mr-auto pl-lg-4">
-            <li class="nav-item px-lg-2 active">
+            <li class="nav-item px-lg-2">
               <a class="nav-link" href="/">
                 <span class="d-inline-block d-lg-none icon-width">
                   <i class="fas fa-home"></i>
@@ -112,7 +123,7 @@
                 Home
               </a>
             </li>
-            <li class="nav-item px-lg-2">
+            <li class="nav-item px-lg-2 active">
               <a class="nav-link" href="/complaints">
                 <span class="d-inline-block d-lg-none icon-width">
                   <i class="fas fa-spa"></i>
@@ -175,8 +186,10 @@
         <div>
           <input type="checkbox" class="checkbox" id="checkbox" />
           <label for="checkbox" class="label">
-            <i class="fas fa-moon"></i>
-            <i class="fas fa-sun"></i>
+            <span class="darktext">Light</span>
+            <span class="darktext">Dark</span>
+            <!-- <i class="fas fa-moon"></i> -->
+            <!-- <i class="fas fa-sun"></i> -->
             <div class="ball"></div>
           </label>
         </div>
@@ -184,6 +197,12 @@
     </nav>
 
     <style>
+      .darktext {
+        color: #fff;
+        font-size: 10px;
+        font-family: "Montserrat", sans-serif;
+        font-weight: 400;
+      }
       .dropdown-toggle::after {
         display: none;
       }
@@ -244,6 +263,8 @@
         document.querySelector(".navi").classList.toggle("navbar-dark");
         document.querySelector(".navi").classList.toggle("bg-dark");
         document.querySelector(".navi").classList.toggle("bg-light");
+        document.querySelector(".navbar-nav").classList.toggle("dark");
+        document.querySelector(".nav-item.active").classList.toggle("dark");
 
         //form to dark
         document.querySelector(".formingn").classList.toggle("dark");

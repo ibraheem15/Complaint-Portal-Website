@@ -9,6 +9,7 @@ html {
   object-fit: fill;
   margin-top: 80px;
   border-radius: 15px;
+  border-width: 0px;
   /* overflow: hidden; */
   /* background-size: 100%; */
 }
@@ -19,15 +20,23 @@ html {
 }
 .services h1 {
   color: #031280;
+  font-family: "Alegreya Sans", sans-serif;
   font-size: 40px;
   font-weight: 700;
   margin-bottom: 30px;
 }
+.services.dark h1,
+.services.dark p,
+.fd-row.dark p,
+.fd-row.dark h2 {
+  color: #fff;
+}
+
 .services p {
   color: #031280;
-
+  font-family: "Alegreya Sans", sans-serif;
   font-size: 20px;
-  font-weight: 500;
+  font-weight: 400;
   max-width: 750px;
   margin: 0 auto;
 }
@@ -42,9 +51,8 @@ html {
 }
 .fd-row p {
   font-size: 20px;
-  font-weight: medium;
-  margin-bottom: 20px;
   font-weight: 400;
+  margin-bottom: 20px;
 }
 
 .fd-row h3 {
@@ -59,9 +67,7 @@ html {
 .feedback1 {
   font-family: "Alegreya Sans", sans-serif;
   height: 350px;
-
   color: #031280;
-
   width: 350px;
 }
 .feedback2 {
@@ -87,12 +93,12 @@ html {
   margin-left: auto;
   margin-right: auto;
   margin-top: 20px;
-  border-radius: 15px;
-  border-color: white;
+  border-width: 0px;
   overflow: hidden;
   background-size: 100%;
   margin-bottom: 30px;
 }
+
 
 /* !-----ENDDD
 *Feedback Divs under the top image */
@@ -196,6 +202,13 @@ html {
 .navbar-nav li a:hover {
   color: #010b55 !important;
 }
+.navbar-nav.dark li a:hover {
+  color: #7981c2 !important;
+}
+
+.nav-item.active.dark a{
+  color: #7981c2 !important;
+}
 
 /* !FOOTER */
 footer {
@@ -219,7 +232,8 @@ footer a {
 
 /* 
 ! Night mode button
- */
+!NAvbar Dark
+*/
 
 .nightmode {
   position: absolute;
@@ -228,9 +242,6 @@ footer a {
   padding: 12px 24px;
 }
 
-/*
-!NAvbar Dark
-*/
 
 .navi.dark .navbar {
   color: rgb(0, 0, 0);
@@ -248,7 +259,7 @@ body.dark {
 }
 
 .label {
-  width: 50px;
+  width: 70px;
   height: 26px;
   background-color: #111;
   display: flex;
@@ -261,27 +272,27 @@ body.dark {
 }
 
 .ball {
-  width: 22px;
+  width: 32px;
   height: 22px;
   background-color: white;
   position: absolute;
   top: 2px;
   left: 2px;
-  border-radius: 50%;
+  border-radius: 50px;
   transition: transform 0.2s linear;
 }
 
 /*  target the elemenent after the label*/
 .checkbox:checked + .label .ball {
-  transform: translateX(24px);
+  transform: translateX(34px);
 }
 
 .fa-moon {
-  color: pink;
+  color: rgb(255, 255, 255);
 }
 
 .fa-sun {
-  color: yellow;
+  color: rgb(255, 255, 255);
 }
 
 /* back to TOP Button */
@@ -305,7 +316,7 @@ body.dark {
 
 #button {
   display: inline-block;
-  background-color: #ff9800;
+  background-color: #4514b9;
   width: 50px;
   height: 50px;
   text-align: center;
@@ -339,92 +350,6 @@ body.dark {
   visibility: visible;
 }
 
-/* 
-@import "compass/css3";
-@import url(https://fonts.googleapis.com/css?family=Lato:700);
-
-.arrow {
-  position: fixed;
-  right: 2rem;
-  bottom: 2rem;
-  margin-top: -29px;
-  margin-left: -60px;
-  display: inline-block;
-  font-size: 26px;
-  color: #b3c33a;
-  text-align: center;
-  width: 120px;
-  height: 60px;
-  line-height: 60px;
-  border: 5px solid #b3c33a;
-  overflow: hidden;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: width 0.5s ease-in-out, margin 0.5s ease-in-out,
-    border-radius 0.25s ease-in-out, color 0.25s ease-in-out;
-}
-.arrow:hover,
-.arrow.auto {
-  width: 60px;
-  margin-left: -30px;
-  border-radius: 40px;
-  color: rgba(179, 195, 58, 0);
-  transition: width 0.5s ease-in-out, margin 0.5s ease-in-out,
-    border-radius 1s 0.25 ease-in-out, color 0.25s ease-in-out 0.25s;
-}
-.arrow:hover:before,
-.arrow.auto:before {
-  animation: lineUp 1s cubic-bezier(0, 0.6, 1, 0.4) infinite 0.5s;
-}
-.arrow:hover:after,
-.arrow.auto:after {
-  animation: tipUp 1s cubic-bezier(0, 0.6, 1, 0.4) infinite 0.5s;
-}
-.arrow:before {
-  position: absolute;
-  display: inline-block;
-  content: "";
-  background: #b3c33a;
-  width: 5px;
-  height: 40px;
-  top: 50%;
-  left: 50%;
-  margin-top: -8px;
-  margin-left: -3px;
-  transform: translateY(50px);
-}
-.arrow:after {
-  position: absolute;
-  display: inline-block;
-  content: "";
-  width: 20px;
-  height: 20px;
-  color: #b3c33a;
-  border-top: 5px solid;
-  border-left: 5px solid;
-  transform: rotateZ(45deg);
-  top: 50%;
-  left: 55.2%;
-  margin-top: -6px;
-  margin-left: -13px;
-  transform: translateY(50px) rotateZ(45deg);
-}
-@keyframes tipUp {
-  0% {
-    transform: translateY(50px) rotateZ(45deg);
-  }
-  100% {
-    transform: translateY(-70px) rotateZ(45deg);
-  }
-}
-@keyframes lineUp {
-  0% {
-    transform: translateY(50px);
-  }
-  100% {
-    transform: translateY(-70px);
-  }
-} */
 /* 
 !----ENDDDD
 * Arrow to move the button to the top 
@@ -479,4 +404,15 @@ img {
   position: absolute;
   margin-top: -350px;
   margin-left: 1050px;
+}
+
+
+
+.nav-img{
+  width: 80px;
+  margin-top: -15px;
+  margin-bottom: -12px;
+  margin-left: 60px;
+  height: 50px;
+  border-width: 0px ;
 }

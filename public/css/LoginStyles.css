@@ -189,7 +189,7 @@ input[type="password"].dark {
 }
 
 .label {
-  width: 50px;
+  width: 70px;
   height: 26px;
   background-color: #111;
   display: flex;
@@ -202,19 +202,19 @@ input[type="password"].dark {
 }
 
 .ball {
-  width: 20px;
-  height: 20px;
+  width: 32px;
+  height: 22px;
   background-color: white;
   position: absolute;
   top: 2px;
   left: 2px;
-  border-radius: 50%;
+  border-radius: 50px;
   transition: transform 0.2s linear;
 }
 
 /*  target the elemenent after the label*/
 .checkbox:checked + .label .ball {
-  transform: translateX(24px);
+  transform: translateX(34px);
 }
 
 .fa-moon {
@@ -241,4 +241,22 @@ footer a {
   margin-top: 0px;
   text-align: center;
 
+}
+
+
+
+.nav-img{
+  width: 80px;
+  margin-top: -15px;
+  margin-bottom: -12px;
+  margin-left: 60px;
+  height: 50px;
+}
+
+.navbar-nav.dark li a:hover {
+  color: #7981c2 !important;
+}
+
+.nav-item.active.dark a{
+  color: #7981c2 !important;
 }

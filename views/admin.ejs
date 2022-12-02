@@ -1,14 +1,7 @@
-<%- include("partials/headerAdmin"); -%>
+<%- include("partials/headerAdmin1"); -%>
 
 <body>
-  <div class="nightmode">
-    <input type="checkbox" class="checkbox" id="checkbox" />
-    <label for="checkbox" class="label">
-      <i class="fas fa-moon"></i>
-      <i class="fas fa-sun"></i>
-      <div class="ball"></div>
-    </label>
-  </div>
+  
   <!-- Displaying Complaints -->
   <div class="container">
     <div class="row">
@@ -43,10 +36,7 @@
               <td class="nighty"><%= complaint.PersonInvolved %></td>
               <td class="nighty"><%= complaint.Relevent_Information %></td>
               <td class="nighty"><%= complaint.Signature %></td>
-              <td class="nighty"><!-- image -->
-                <img src="data:image/<%=complaint.img.contentType%>;base64,
-                     <%=complaint.img.data.toString('base64')%>">
-              </td>
+             
                 
 
               <td class="delete">
